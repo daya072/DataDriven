@@ -4,7 +4,7 @@ package page.locators;
  * Hello world!
  *
  */
-public class App 
+public class SignOnLocators 
 {
     public static void main( String[] args )
     {
