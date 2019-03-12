@@ -17,7 +17,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	
 	@BeforeSuite
 	public void beforeSuite() {
-		SeleniumDriver.invokeBrowser();
+		SeleniumDriver.SetupDriver();
 	}
 	
 	@AfterClass

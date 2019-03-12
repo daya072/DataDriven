@@ -1,19 +1,29 @@
 package utils;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SeleniumDriver {
+	private static  SeleniumDriver seleniumDriver;
+	static ConfigFileReader configFileReader = new ConfigFileReader();
+	public static WebDriverWait waitDriver; 
+	public final static int TIMEOUT = 30;
+	public final static int PAGE_LOAD_TIMEOUT = 30;
+	
+	
 	final static Log log = LogFactory.getLog(SeleniumDriver.class.getName());
 	static WebDriver driver;
-	static ConfigFileReader configFileReader = new ConfigFileReader();
+	
 
-	public static void invokeBrowser() {
+	public SeleniumDriver() {
 		String browserName = configFileReader.GetBrowserName();
 		if(browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -26,6 +36,16 @@ public class SeleniumDriver {
 		else {
 			throw new RuntimeException("Browser name provided in config file is not valid");
 		}
+		
+		waitDriver = new WebDriverWait(driver, TIMEOUT);
+		driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+	}
+	
+	public static void SetupDriver() {
+		if (seleniumDriver == null) {
+			seleniumDriver = new SeleniumDriver();
+		}
 	}
 	
 	
@@ -36,8 +56,13 @@ public class SeleniumDriver {
 	public static void OpenURL(String URL) {
 		if(URL!=null) {
 			driver.get(URL);
+			log.info(driver);
 			log.info("URL launched");
 		}
+	}
+	
+	public static WebDriverWait getWetDriver() {
+		return waitDriver;
 	}
 	public static void tearDown() {
 		if(driver!=null) {

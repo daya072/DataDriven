@@ -12,6 +12,7 @@ public class SignOnStepDef {
 	public void user_logged_in_using_and(String url, String userID, String password) throws Throwable {
 	    SeleniumDriver.OpenURL(url);
 	    signOnActions.ClickLogInLink();
+	    signOnActions.ClickLoginWithMobile();
 	    
 	}
 
