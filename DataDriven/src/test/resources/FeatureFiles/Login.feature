@@ -6,4 +6,4 @@ When user logged in using "<IP_URL>", "<IP_UserName>" and "<IP_Password>"
 Then dashboard page is displayed
 Examples:
 |IP_URL|IP_UserName|IP_Password|
-|http://newtours.demoaut.com/|test|test|
+|https://paytm.com/flights|daya072@gmail.com|RetHme@17|
