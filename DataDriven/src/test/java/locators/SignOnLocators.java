@@ -9,11 +9,22 @@ import utils.SeleniumDriver;
 
 public class SignOnLocators {
 	
-	@FindBy(xpath="//*[@class='userName']")
+/*	@FindBy(xpath="//*[@class='userName']")
 	public WebElement loginButton;
 	
 	@FindBy(xpath="//*[@id=\"wallet-container-new qr-bg-white\"]/qr-code-login/div[2]/div[2]/div[3]")
 	public WebElement loginWithMobileLink;
+*/
+	
+	@FindBy(xpath="//input[@name='userName']")
+	public WebElement userNmae;
+	
+	@FindBy(xpath="//input[@name='password']")
+	public WebElement password;
+	
+	@FindBy(name="login")
+	public WebElement login;
+	
 	
 	public SignOnLocators(){
 		WebDriver driver = SeleniumDriver.GetDriver();

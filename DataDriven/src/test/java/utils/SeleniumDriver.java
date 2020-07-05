@@ -9,14 +9,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import cucumber.api.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SeleniumDriver {
 	private static  SeleniumDriver seleniumDriver;
 	static ConfigFileReader configFileReader = new ConfigFileReader();
 	public static WebDriverWait waitDriver; 
-	public final static int TIMEOUT = 30;
-	public final static int PAGE_LOAD_TIMEOUT = 30;
+	public final static int TIMEOUT = 10;
+	public final static int PAGE_LOAD_TIMEOUT = 10;
 	
 	
 	final static Log log = LogFactory.getLog(SeleniumDriver.class.getName());
