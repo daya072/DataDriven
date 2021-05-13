@@ -4,3 +4,8 @@ Feature: MMT
 Scenario: Test MMT saerch
 Given Open MMT URL 
 Then test the flight search
+
+  Scenario Outline:
+    Given
+    Then
+    Examples:
