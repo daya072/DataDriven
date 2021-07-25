@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.testng.annotations.Test;
 import page.actions.SignOnActions;
 import utils.SeleniumDriver;
 
@@ -45,6 +46,11 @@ public class SignOnStepDef {
 		SeleniumDriver.GetDriver().findElement(By.xpath("//*[@for='fromCity']/../div/div/div/div/input"))
 				.sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
+	}
+
+	@Test
+	public void myTest(){
+
 	}
 
 }
